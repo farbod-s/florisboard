@@ -32,6 +32,9 @@ androidx-test-uiautomator = "2.3.0"
 equalsverifier = "3.10"
 kotest = "5.4.0"
 kotest-extensions-roboelectric = "0.5.0"
+junit = "4.13.2"
+appcompat = "1.6.1"
+material = "1.10.0"
 
 [libraries]
 # Main
@@ -73,6 +76,9 @@ kotest-assertions-core = { module = "io.kotest:kotest-assertions-core", version.
 kotest-extensions-roboelectric = { module = "io.kotest.extensions:kotest-extensions-robolectric", version.ref = "kotest-extensions-roboelectric" }
 kotest-property = { module = "io.kotest:kotest-property", version.ref = "kotest" }
 kotest-runner-junit5 = { module = "io.kotest:kotest-runner-junit5", version.ref = "kotest" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 
 [plugins]
 # Main

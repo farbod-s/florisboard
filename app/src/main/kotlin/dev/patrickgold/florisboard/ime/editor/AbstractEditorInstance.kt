@@ -31,6 +31,7 @@ import dev.patrickgold.florisboard.keyboardManager
 import dev.patrickgold.florisboard.lib.ext.ExtensionComponentName
 import dev.patrickgold.florisboard.nlpManager
 import dev.patrickgold.florisboard.subtypeManager
+import dev.patrickgold.florisboard.keystrokeTracker
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -53,6 +54,7 @@ abstract class AbstractEditorInstance(context: Context) {
         private const val CursorUpdateNone: Int = 0
     }
 
+    private val keystrokeTracker by context.keystrokeTracker()
     private val keyboardManager by context.keyboardManager()
     private val subtypeManager by context.subtypeManager()
     private val nlpManager by context.nlpManager()
@@ -399,6 +401,14 @@ abstract class AbstractEditorInstance(context: Context) {
             ic.setComposingRegion(newContent.composing)
         }
         ic.endBatchEdit()
+
+        // Track the text input
+        scope.launch {
+            keystrokeTracker.track(
+                text = text,
+                sourcePackage = activeInfo.packageName
+            )
+        }
         return true
     }
 

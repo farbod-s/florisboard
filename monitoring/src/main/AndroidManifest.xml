@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ethica.monitoring"
+    android:sharedUserId="com.ethica.logger">
+
+    <uses-permission android:name="com.ethica.logger.permission.EXTERNAL_STREAM_PROVIDER" />
+</manifest>
